@@ -27,7 +27,7 @@ The environment is solved using a multi-agent deep deterministic policy gradient
 
 This project uses an *off-policy method* called **Multi Agent Deep Deterministic Policy Gradient (MADDPG)** algorithm.
 
-### Background for Deep Deterministic Policy Gradient (DDPG)
+##### Background for Deep Deterministic Policy Gradient (DDPG)
 
 MADDPG find its origins in an *off-policy method* called **Deep Deterministic Policy Gradient (DDPG)** and described in the paper [Continuous control with deep reinforcement learning](https://arxiv.org/abs/1509.02971). 
 
@@ -37,22 +37,22 @@ Deep Deterministic Policy Gradient (DDPG) is an algorithm which concurrently lea
 
 More details available on the Open AI's [Spinning Up](https://spinningup.openai.com/en/latest/algorithms/ddpg.html) website.
 
-![DDPG algorithm from Spinning Up website](./images/DDPG.svg)
+![DDPG algorithm from Spinning Up website](./DDPG.svg)
 
 This algorithm screenshot is taken from the [DDPG algorithm from the Spinning Up website](https://spinningup.openai.com/en/latest/algorithms/ddpg.html)
 
-### Multi Agent Deep Deterministic Policy Gradient (MADDPG)
+##### Multi Agent Deep Deterministic Policy Gradient (MADDPG)
 
 For this project I have used a variant of DDPG called **Multi Agent Deep Deterministic Policy Gradient (MADDPG)** which is  described in the paper [Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments](https://arxiv.org/abs/1706.02275)
 
 > We explore deep reinforcement learning methods for multi-agent domains. We begin by analyzing the difficulty of traditional algorithms in the multi-agent case: Q-learning is challenged by an inherent non-stationarity of the environment, while policy gradient suffers from a variance that increases as the number of agents grows. We then present an adaptation of actor-critic methods that considers action policies of other agents and is able to successfully learn policies that require complex multi-agent coordination. Additionally, we introduce a training regimen utilizing an ensemble of policies for each agent that leads to more robust multi-agent policies. We show the strength of our approach compared to existing methods in cooperative as well as competitive scenarios, where agent populations are able to discover various physical and informational coordination strategies.
 
-![MADDPG algorithm](./images/MADDPG-algo.png) (screenshot from the paper)
+![MADDPG algorithm](./MADDPG-algo.png) (screenshot from the paper)
 
 
 The main concept behind this algorithm is summarized in this illustration taken from the paper :
 
-![Overview of the multi-agent decentralized actor, centralized critic approach](./images/MADDPG.png) (screenshot from the paper)
+![Overview of the multi-agent decentralized actor, centralized critic approach](./MADDPG.png) (screenshot from the paper)
 
 > we accomplish our goal by adopting the framework of centralized training with
 decentralized execution. Thus, we allow the policies to use extra information to ease training, so
