@@ -25,7 +25,43 @@ The environment is solved using a multi-agent deep deterministic policy gradient
 
 #### Learning Algorithms
 
-This project considers a multi-agent implementation of the DDPG algorithm.
+This project uses an *off-policy method* called **Multi Agent Deep Deterministic Policy Gradient (MADDPG)** algorithm.
+
+### Background for Deep Deterministic Policy Gradient (DDPG)
+
+MADDPG find its origins in an *off-policy method* called **Deep Deterministic Policy Gradient (DDPG)** and described in the paper [Continuous control with deep reinforcement learning](https://arxiv.org/abs/1509.02971). 
+
+> We adapt the ideas underlying the success of Deep Q-Learning to the continuous action domain. We present an actor-critic, model-free algorithm based on the deterministic policy gradient that can operate over continuous action spaces. Using the same learning algorithm, network architecture and hyper-parameters, our algorithm robustly solves more than 20 simulated physics tasks, including classic problems such as cartpole swing-up, dexterous manipulation, legged locomotion and car driving. Our algorithm is able to find policies whose performance is competitive with those found by a planning algorithm with full access to the dynamics of the domain and its derivatives. We further demonstrate that for many of the tasks the algorithm can learn policies end-to-end: directly from raw pixel inputs.
+
+Deep Deterministic Policy Gradient (DDPG) is an algorithm which concurrently learns a Q-function and a policy. It uses off-policy data and the Bellman equation to learn the Q-function, and uses the Q-function to learn the policy.
+
+More details available on the Open AI's [Spinning Up](https://spinningup.openai.com/en/latest/algorithms/ddpg.html) website.
+
+![DDPG algorithm from Spinning Up website](./images/DDPG.svg)
+
+This algorithm screenshot is taken from the [DDPG algorithm from the Spinning Up website](https://spinningup.openai.com/en/latest/algorithms/ddpg.html)
+
+### Multi Agent Deep Deterministic Policy Gradient (MADDPG)
+
+For this project I have used a variant of DDPG called **Multi Agent Deep Deterministic Policy Gradient (MADDPG)** which is  described in the paper [Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments](https://arxiv.org/abs/1706.02275)
+
+> We explore deep reinforcement learning methods for multi-agent domains. We begin by analyzing the difficulty of traditional algorithms in the multi-agent case: Q-learning is challenged by an inherent non-stationarity of the environment, while policy gradient suffers from a variance that increases as the number of agents grows. We then present an adaptation of actor-critic methods that considers action policies of other agents and is able to successfully learn policies that require complex multi-agent coordination. Additionally, we introduce a training regimen utilizing an ensemble of policies for each agent that leads to more robust multi-agent policies. We show the strength of our approach compared to existing methods in cooperative as well as competitive scenarios, where agent populations are able to discover various physical and informational coordination strategies.
+
+![MADDPG algorithm](./images/MADDPG-algo.png) (screenshot from the paper)
+
+
+The main concept behind this algorithm is summarized in this illustration taken from the paper :
+
+![Overview of the multi-agent decentralized actor, centralized critic approach](./images/MADDPG.png) (screenshot from the paper)
+
+> we accomplish our goal by adopting the framework of centralized training with
+decentralized execution. Thus, we allow the policies to use extra information to ease training, so
+long as this information is not used at test time. It is unnatural to do this with Q-learning, as the Q
+function generally cannot contain different information at training and test time. Thus, we propose
+a simple extension of actor-critic policy gradient methods where the critic is augmented with extra
+information about the policies of other agents.
+
+In short, this means that during the training, the Critics networks have access to the states and actions information of both agents, while the Actors networks have only access to the information corresponding to their local agent.
 
 #### Agent Hyperparameters
 
